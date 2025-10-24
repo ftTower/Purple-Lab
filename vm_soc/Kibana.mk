@@ -10,7 +10,7 @@ update:
 	sudo apt update && sudo apt upgrade -y
 
 dep :
-	sudo apt-get install kibana -y
+	sudo apt-get install kibana nginx -y
 
 kibana :
 	sudo systemctl enable kibana
@@ -19,10 +19,11 @@ kibana :
 
 reverse_proxy:
 	echo "$(YELLOW)Configuring a Reverse Proxy for kibana...$(NC)"
-	@read -p "Enter username: " username; \
+	@/bin/bash -c 'read -p "Enter username: " username; \
 	read -s -p "Enter password: " password; \
 	echo; \
-	echo "$$username:`echo $$password | openssl passwd -apr1 -stdin`" | sudo tee -a /etc/nginx/htpasswd.users
+	sudo mkdir -p /etc/nginx; \
+	echo "$$username:`echo $$password | openssl passwd -apr1 -stdin`" | sudo tee -a /etc/nginx/htpasswd.users'
 	echo "$(BLUE)Getting domain or public IP...$(NC)"
 	@domain=$$(hostname -f 2>/dev/null | grep -E '^[^.]+\.[^.]+' || echo ""); \
 	if [ -z "$$domain" ]; then \
