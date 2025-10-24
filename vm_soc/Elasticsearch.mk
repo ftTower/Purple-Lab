@@ -1,5 +1,5 @@
 .SILENT:
-# Color codes for echo statements
+
 GREEN = \033[32m
 RED = \033[31m
 YELLOW = \033[33m
@@ -10,7 +10,7 @@ update:
 	sudo apt update && sudo apt upgrade -y
 
 dep :
-	sudo apt-get install curl vim git -y
+	sudo apt-get install curl -y
 
 elastic :
 	curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
