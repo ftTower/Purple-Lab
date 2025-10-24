@@ -7,8 +7,8 @@ dep :
 	sudo apt-get install curl vim git -y
 
 elastic :
-	curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-	echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+	curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+	echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 	sudo apt update && sudo apt install elasticsearch
 	echo "Successfully installed elasticsearch"
 	sudo cp vm_soc/conf_elastic_s.yml /etc/elasticsearch/elasticsearch.yml
