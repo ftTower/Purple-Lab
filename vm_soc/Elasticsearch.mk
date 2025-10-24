@@ -18,3 +18,13 @@ elastic :
 	curl -X GET "localhost:9200"
 
 all : update dep elastic
+
+clean:
+	sudo systemctl stop elasticsearch
+	sudo systemctl disable elasticsearch
+	sudo apt remove elasticsearch -y
+	sudo rm -f /etc/apt/sources.list.d/elastic-7.x.list
+	sudo rm -f /usr/share/keyrings/elasticsearch-keyring.gpg
+	sudo apt update
+
+.PHONY: update dep elastic all clean
