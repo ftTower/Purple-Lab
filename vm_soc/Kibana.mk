@@ -35,9 +35,11 @@ reverse_proxy:
 	sudo cp conf_kibana /etc/nginx/sites-available/kibana; \
 	sudo sed -i "s/your_domain/$$domain/g" /etc/nginx/sites-available/kibana; \
 	sudo mkdir -p /etc/nginx/sites-enabled; \
+	sudo rm -f /etc/nginx/sites-enabled/default; \
 	sudo ln -sf /etc/nginx/sites-available/kibana /etc/nginx/sites-enabled/; \
 	sudo nginx -t && sudo systemctl reload nginx; \
-	echo "$(GREEN)Kibana reverse proxy configured with domain/IP: $$domain$(NC)"
+	echo "$(GREEN)Kibana reverse proxy configured with domain/IP: $$domain$(NC)"; \
+	echo "$(BLUE)Access Kibana at: http://$$domain$(NC)"
 
 all: update dep kibana reverse_proxy
 	
