@@ -8,10 +8,12 @@ linux used : https://releases.ubuntu.com/24.04.3/ubuntu-24.04.3-desktop-amd64.is
 
 ### SOC tools 
 
+```
 Elasticstack
     Elastic Search - storage and search 
     Logstash       - processing and logs normalisation
     Kibana         - alert and visualisation
+```
 
 ## Setup
 
