@@ -4,6 +4,19 @@ This is my first try installing and using Defense mechanisms in a computer (box 
 
 The goal is to setup a defense mechanism and use it to monitor/ defend a victim vm (Windows Server) from an attacker vm.
 
+```
+.
+├── Makefile
+├── README.md
+└── vm_soc
+    ├── conf_elastic_s.yml
+    ├── conf_kibana
+    ├── Elasticsearch.mk
+    ├── Kibana.mk
+    └── README.md
+
+```
+
 ## Setup
 
 ### iso 
