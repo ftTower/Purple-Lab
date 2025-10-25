@@ -10,6 +10,14 @@ update:
 	sudo apt update && sudo apt upgrade -y
 
 dep :
+	# Add Elastic repository if not already present
+	@if ! test -f /usr/share/keyrings/elasticsearch-keyring.gpg; then \
+		curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg; \
+	fi
+	@if ! grep -q "artifacts.elastic.co" /etc/apt/sources.list.d/elastic-7.x.list 2>/dev/null; then \
+		echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list; \
+	fi
+	sudo apt update
 	sudo apt-get install kibana nginx -y
 
 kibana :
