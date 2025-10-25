@@ -17,7 +17,7 @@ Kibana_dep :
 	sudo apt update
 	sudo apt-get install kibana nginx -y
 
-kibana :
+Kibana :
 	sudo systemctl enable kibana
 	sudo systemctl start kibana
 
