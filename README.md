@@ -4,7 +4,7 @@ This is my first try installing and using Defense mechanisms in a computer (box 
 
 The goal is to setup a defense mechanism and use it to monitor/ defend a victim vm (Windows Server) from an attacker vm.
 
-```
+```bash
 .
 ├── Makefile
 ├── README.md
