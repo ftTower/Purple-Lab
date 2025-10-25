@@ -37,7 +37,7 @@ Kibana_reverse_proxy:
 		domain=$$public_ip; \
 	fi; \
 	echo "$(GREEN)Using: $$domain$(NC)"; \
-	sudo cp /vm_soc/conf_kibana /etc/nginx/sites-available/kibana; \
+	sudo cp ./vm_soc/conf_kibana /etc/nginx/sites-available/kibana; \
 	sudo sed -i "s/your_domain/$$domain/g" /etc/nginx/sites-available/kibana; \
 	sudo mkdir -p /etc/nginx/sites-enabled; \
 	sudo rm -f /etc/nginx/sites-enabled/default; \
