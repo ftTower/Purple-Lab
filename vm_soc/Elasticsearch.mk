@@ -8,10 +8,10 @@ BLINK = \033[5m
 
 NC = \033[0m # No Color
 
-update:
+elastic_search_update:
 	sudo apt update && sudo apt upgrade -y
 
-dep :
+elastic_search_dep :
 	sudo apt-get install curl -y
 
 elastic :
@@ -27,10 +27,10 @@ elastic_search_msg :
 	echo "$(FOCUS)Successfully installed and configured elasticsearch$(NC)"
 
 
-elastic_search_all : update
-	make -f Elasticsearch.mk dep
-	make -f Elasticsearch.mk elastic
-	make -f Elasticsearch.mk elastic_search_msg
+elastic_search_all : elastic_search_update
+	make elastic_search_dep
+	make elastic
+	make elastic_search_msg
 
 
 clean:
@@ -41,4 +41,4 @@ clean:
 	sudo rm -f /usr/share/keyrings/elasticsearch-keyring.gpg
 	sudo apt update
 
-.PHONY: update dep elastic all clean
+.PHONY: elastic_search_update elastic_search_dep elastic elastic_search_all clean

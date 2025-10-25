@@ -1,9 +1,9 @@
 .SILENT:
 
-update:
+Kibana_update:
 	sudo apt update && sudo apt upgrade -y
 
-dep :
+Kibana_dep :
 	# Install required dependencies first
 	sudo apt-get update
 	sudo apt-get install curl gnupg apt-transport-https -y
@@ -22,7 +22,7 @@ kibana :
 	sudo systemctl start kibana
 
 
-reverse_proxy:
+Kibana_reverse_proxy:
 	echo "$(YELLOW)Configuring a Reverse Proxy for kibana...$(NC)"
 	@/bin/bash -c 'read -p "Enter username: " username; \
 	read -s -p "Enter password: " password; \
@@ -49,9 +49,9 @@ reverse_proxy:
 kibana_msg :
 	echo "$(FOCUS)Successfully installed and configured Kibana$(NC)"
 
-kibana_all: update
-	make -f Kibana.mk dep
-	make -f Kibana.mk Kibana
-	make -f Kibana.mk reverse_proxy
-	make -f Kibana.mk kibana_msg
+kibana_all: Kibana_update
+	make Kibana_dep
+	make Kibana
+	make Kibana_reverse_proxy
+	make kibana_msg
 	
