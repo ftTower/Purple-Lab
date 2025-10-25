@@ -18,7 +18,4 @@ finish_msg :
 	echo "$(YELLOW)Kibana page :$(NC) http://localhost/"
 
 soc: update
-	make -f ~/Purple_lab/vm_soc/Elasticsearch.mk elastic_search_all
-	make -f ~/Purple_lab/vm_soc/Kibana.mk kibana_all
-	make finish_msg
-
+	make elastic_search_all && make kibana_all && make finish_msg
