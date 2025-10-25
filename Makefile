@@ -13,8 +13,12 @@ update :
 	sudo apt update && sudo apt-get upgrade -y && sudo apt-get install git make vim -y && clear
 
 
-msg :
+finish_msg :
 	echo "\n\n$(FOCUS)installation Finished ! $(NC)"
 	echo "$(YELLOW)Kibana page :$(NC) http://localhost/"
 
-soc: update elastic_search_all kibana_all msg
+soc: update
+	make -f ./vm_soc/Elasticsearch.mk elastic_search_all
+	make -f ./vm_soc/Kibana.mk kibana_all_all
+	make finish_msg
+

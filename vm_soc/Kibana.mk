@@ -46,8 +46,12 @@ reverse_proxy:
 	echo "$(GREEN)Kibana reverse proxy configured with domain/IP: $$domain$(NC)"; \
 	echo "$(BLUE)Access Kibana at: http://$$domain$(NC)"
 
-msg :
+kibana_msg :
 	echo "$(FOCUS)Successfully installed and configured Kibana$(NC)"
 
-kibana_all: update dep kibana reverse_proxy msg
+kibana_all: update
+	make -f Kibana.mk dep
+	make -f Kibana.mk Kibana
+	make -f Kibana.mk reverse_proxy
+	make -f Kibana.mk kibana_msg
 	

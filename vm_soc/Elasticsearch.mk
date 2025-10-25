@@ -23,11 +23,15 @@ elastic :
 	sudo systemctl enable elasticsearch
 # 	curl -X GET "localhost:9200"
 
-msg :
+elastic_search_msg :
 	echo "$(FOCUS)Successfully installed and configured elasticsearch$(NC)"
 
 
-elastic_search_all : update dep elastic msg
+elastic_search_all : update
+	make -f Elasticsearch.mk dep
+	make -f Elasticsearch.mk elastic
+	make -f Elasticsearch.mk elastic_search_msg
+
 
 clean:
 	sudo systemctl stop elasticsearch
