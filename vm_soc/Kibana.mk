@@ -10,6 +10,9 @@ update:
 	sudo apt update && sudo apt upgrade -y
 
 dep :
+	# Install required dependencies first
+	sudo apt-get update
+	sudo apt-get install curl gnupg apt-transport-https -y
 	# Add Elastic repository if not already present
 	@if ! test -f /usr/share/keyrings/elasticsearch-keyring.gpg; then \
 		curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg; \
