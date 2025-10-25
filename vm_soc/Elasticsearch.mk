@@ -6,7 +6,6 @@ YELLOW = \033[33m
 BLUE = \033[34m
 BLINK = \033[5m
 
-FOCUS = $(BLINK)$(BLUE)
 NC = \033[0m # No Color
 
 update:

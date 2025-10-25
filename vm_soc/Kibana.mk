@@ -1,11 +1,5 @@
 .SILENT:
 
-GREEN = \033[32m
-RED = \033[31m
-YELLOW = \033[33m
-BLUE = \033[34m
-NC = \033[0m # No Color
-
 update:
 	sudo apt update && sudo apt upgrade -y
 
@@ -43,7 +37,7 @@ reverse_proxy:
 		domain=$$public_ip; \
 	fi; \
 	echo "$(GREEN)Using: $$domain$(NC)"; \
-	sudo cp conf_kibana /etc/nginx/sites-available/kibana; \
+	sudo cp /vm_soc/conf_kibana /etc/nginx/sites-available/kibana; \
 	sudo sed -i "s/your_domain/$$domain/g" /etc/nginx/sites-available/kibana; \
 	sudo mkdir -p /etc/nginx/sites-enabled; \
 	sudo rm -f /etc/nginx/sites-enabled/default; \

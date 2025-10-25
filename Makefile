@@ -1,11 +1,20 @@
 include ./vm_soc/*.mk
 
+GREEN = \033[32m
+RED = \033[31m
+YELLOW = \033[33m
+BLUE = \033[34m
+
+NC = \033[0m
+
+FOCUS = $(BLINK)$(RED)
 
 update :
 	sudo apt update && sudo apt-get upgrade -y && sudo apt-get install git make vim -y && clear
 
 
 msg :
-	echo "$(FOCUS)installation Finished$(NC)"
+	echo "\n\n$(FOCUS)installation Finished ! $(NC)"
+	echo "$(YELLOW)Kibana page :$(NC) http://localhost/"
 
-soc: update kibana_all elastic_search_all msg
+soc: update elastic_search_all kibana_all msg
