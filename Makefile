@@ -1,4 +1,4 @@
-include vm_soc/*.mk
+include ./vm_soc/*.mk
 
 
 update :
