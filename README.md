@@ -1,4 +1,4 @@
-# Purple-Lab
+# Purple-Lab (IN PROGRESS)
 
 This is my first try installing and using Defense mechanisms in a computer (box in this case).
 
@@ -32,3 +32,6 @@ windows Server   : https://go.microsoft.com/fwlink/?linkid=2273506
 
 setup elastic stack : 
 https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elastic-stack-on-ubuntu-20-04
+
+elastic security :
+https://www.elastic.co/guide/en/elasticsearch/reference/7.16/configuring-stack-security.html
