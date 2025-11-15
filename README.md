@@ -1,5 +1,7 @@
 # Purple-Lab (IN PROGRESS)
 
+![Banner](https://github.com/ftTower/ftTower/blob/main/assets/Purple-lab/banner.png)
+
 This is my first try installing and using Defense mechanisms in a computer (box in this case).
 
 The goal is to setup a defense mechanism and use it to monitor/ defend a victim vm (Windows Server) from an attacker vm.
